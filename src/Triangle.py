@@ -1,5 +1,3 @@
-import math
-
 from src.Figure import Figure
 
 
@@ -26,9 +24,16 @@ class Triangle(Figure):
 
     @property
     def area(self):
-        area = (self.side_a + self.side_b + self.side_c) / 2
-        return math.sqrt(
-            area * (area - self.side_a) * (area - self.side_b) * (area - self.side_c)
+        half_area = (self.side_a + self.side_b + self.side_c) / 2
+        return round(
+            (
+                half_area
+                * (half_area - self.side_a)
+                * (half_area - self.side_b)
+                * (half_area - self.side_c)
+            )
+            ** 0.5,
+            6,
         )
 
     @property
